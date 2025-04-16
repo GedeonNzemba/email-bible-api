@@ -1,3 +1,4 @@
+const path = require('path');
 var Constants = require('./constants');
 var utility = require('./utility');
 
@@ -30,7 +31,7 @@ const getBook = (book, db, res) => {
 }
 
 const dbBible = (bibleInfo) => {
-	const dbFileName = Constants.DB_PATH + bibleInfo.bible;
+  const dbFileName = path.join(__dirname, '..', Constants.DB_PATH, bibleInfo.bible);
   const db =  require('knex')({
     client: 'better-sqlite3', // or 'better-sqlite3'
     connection: {
